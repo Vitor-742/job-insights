@@ -19,14 +19,13 @@ def read(path):
 
     listData = []
 
-    with open(path, encoding="utf-8") as jobs_file:
+    with open(path) as jobs_file:
         CSVreader = csv.reader(jobs_file, delimiter=",", quotechar='"')
         header, *data = CSVreader
-        print(header)
 
     for item in data:
         job = {}
-        for i in range(13):
+        for i in range(len(item)):
             job.update({header[i]: item[i]})
         listData.append(job)
 
