@@ -40,7 +40,7 @@ def get_unique_industries(path):
     # filterData = set(listData)
     # if(filterData.count('') > 0):
     #     filterData.remove('')
-    filterData = [ x for x in listData if x != '' ]
+    filterData = [x for x in listData if x != '']
     # if('' in listData):
     #     print('a')
     #     listData.remove('')
