@@ -30,21 +30,21 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    listData = []
 
-    Must call `read`
+    data = read(path)
+    for item in data:
+        listData.append(item["industry"])
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    # del listData['']
+    # filterData = set(listData)
+    # if(filterData.count('') > 0):
+    #     filterData.remove('')
+    filterData = [ x for x in listData if x != '' ]
+    # if('' in listData):
+    #     print('a')
+    #     listData.remove('')
+    return set(filterData)
 
 
 def filter_by_industry(jobs, industry):
