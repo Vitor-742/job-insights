@@ -75,8 +75,6 @@ def matches_salary_range(job, salary):
     maxSal = job['max_salary']
     if not isinstance(minSal, int) or not isinstance(maxSal, int):
         raise ValueError('formato invalido')
-    # if minSal > maxSal:
-    #     raise ValueError('dados conflitantes')
     if not isinstance(salary, int) or minSal > maxSal:
         raise ValueError('formato invalido')
     if minSal <= salary <= maxSal:
@@ -86,6 +84,14 @@ def matches_salary_range(job, salary):
 
 
 def filter_by_salary_range(jobs, salary):
+    listData = []
+    for job in jobs:
+        try:
+            if(matches_salary_range(job, salary)):
+                listData.append(job)
+        except:
+            print('fora do padrao')
+    return listData
     """Filters a list of jobs by salary range
 
     Parameters
