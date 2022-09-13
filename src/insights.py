@@ -12,21 +12,11 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    dataList = []
+    for job in jobs:
+        if job['job_type'] == job_type:
+            dataList.append(job)
+    return dataList
 
 
 def get_unique_industries(path):
@@ -80,7 +70,7 @@ def get_min_salary(path):
     data = read(path)
     for item in data:
         if item['min_salary'].isdigit():
-            if first == True:
+            if first:
                 min = int(item['min_salary'])
                 first = False
             if int(item['min_salary']) < min:
