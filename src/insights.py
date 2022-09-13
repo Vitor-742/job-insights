@@ -89,7 +89,7 @@ def filter_by_salary_range(jobs, salary):
         try:
             if(matches_salary_range(job, salary)):
                 listData.append(job)
-        except:
+        except ValueError:
             print('fora do padrao')
     return listData
     """Filters a list of jobs by salary range
