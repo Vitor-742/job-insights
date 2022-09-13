@@ -69,6 +69,20 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
+    if job.get('min_salary') == None or job.get('max_salary') == None:
+        raise ValueError('falta de dados')
+    if not isinstance(job['min_salary'], int) or not isinstance(job['max_salary'], int):
+        raise ValueError('formato invalido')
+    if job['min_salary'] > job['max_salary']:
+        raise ValueError('dados conflitantes')
+    if not isinstance(salary, int):
+        raise ValueError('formato invalido')
+    if job['min_salary'] <= salary <= job['max_salary']:
+        return True
+    else:
+        return False
+
+
     """Checks if a given salary is in the salary range of a given job
 
     Parameters
